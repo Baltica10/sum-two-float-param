@@ -1,9 +1,9 @@
 package com.stiki.pixels.sumapi.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotNull;
 import java.util.*;
 
 @Getter
@@ -20,7 +20,8 @@ public class RequestDto {
     @JsonProperty("param_two")
     private Float paramTwo;
 
-    public Map<String, Float> getMapParams(){
+    @JsonIgnore
+    public Map<String, Float> getMapParams() {
         Map<String, Float> result = new HashMap<>();
         result.put("param_one", this.paramOne);
         result.put("param_two", this.paramTwo);
